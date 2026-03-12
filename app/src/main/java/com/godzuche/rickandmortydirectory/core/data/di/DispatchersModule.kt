@@ -7,16 +7,16 @@ import org.koin.dsl.module
 
 val dispatchersModule = module {
 
-    single<CoroutineDispatcher>(named(DendDispatchers.IO)) {
+    single<CoroutineDispatcher>(named(RickAndMortyDispatchers.IO)) {
         Dispatchers.IO
     }
 
-    single<CoroutineDispatcher>(named(DendDispatchers.Default)) {
+    single<CoroutineDispatcher>(named(RickAndMortyDispatchers.Default)) {
         Dispatchers.Default
     }
 }
 
-enum class DendDispatchers {
+enum class RickAndMortyDispatchers {
     Default,
     IO,
 }

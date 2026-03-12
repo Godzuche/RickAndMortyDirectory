@@ -18,7 +18,7 @@ val dataStoreModule = module {
     single { RickAndMortyPreferencesSerializer }
 
     single<DataStore<UserPreferencesData>> {
-        val ioDispatcher = get<CoroutineDispatcher>(named(DendDispatchers.IO))
+        val ioDispatcher = get<CoroutineDispatcher>(named(RickAndMortyDispatchers.IO))
         val scope = get<CoroutineScope>(named<ApplicationScope>())
         val userPreferencesSerializer = get<RickAndMortyPreferencesSerializer>()
 

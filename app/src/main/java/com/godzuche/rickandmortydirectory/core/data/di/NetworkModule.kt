@@ -20,7 +20,7 @@ val networkModule = module {
 
     single<CharacterRemoteDataSource> {
 //        val scope = get<CoroutineScope>(named<ApplicationScope>())
-        val ioDispatcher = get<CoroutineDispatcher>(named(DendDispatchers.IO))
+        val ioDispatcher = get<CoroutineDispatcher>(named(RickAndMortyDispatchers.IO))
 
         KtorCharacterRemoteDataSource(
             client = get(),

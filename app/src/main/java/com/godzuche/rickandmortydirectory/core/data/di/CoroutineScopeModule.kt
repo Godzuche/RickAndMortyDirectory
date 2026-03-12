@@ -10,7 +10,7 @@ object ApplicationScope
 
 val coroutineScopesModule = module {
     single<CoroutineScope>(named<ApplicationScope>()) {
-        val defaultDispatcher = get<CoroutineDispatcher>(named(DendDispatchers.Default))
+        val defaultDispatcher = get<CoroutineDispatcher>(named(RickAndMortyDispatchers.Default))
         CoroutineScope(SupervisorJob() + defaultDispatcher)
     }
 }

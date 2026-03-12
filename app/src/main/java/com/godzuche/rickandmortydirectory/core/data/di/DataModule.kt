@@ -14,7 +14,7 @@ import org.koin.dsl.module
 val dataModule = module {
     singleOf(::RickAndMortyPreferencesDataSource)
     single<UserDataRepository> {
-        val ioDispatcher = get<CoroutineDispatcher>(named(DendDispatchers.IO))
+        val ioDispatcher = get<CoroutineDispatcher>(named(RickAndMortyDispatchers.IO))
 
         OfflineFirstUserDataRepository(
             preferencesDataSource = get(),
