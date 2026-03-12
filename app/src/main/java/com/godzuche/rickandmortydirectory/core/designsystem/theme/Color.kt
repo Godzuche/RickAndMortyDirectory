@@ -2,9 +2,8 @@ package com.godzuche.rickandmortydirectory.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
-val zenDarkSurface = Color(0xFF12131A)
-val zenLightSurface = Color(0xFFF7F8FC)
-
+val AliveColor =  Color(0xFF4CAF50)
+val DeadColor = Color(0xFFF44336)
 
 val primaryLight = Color(0xFF5A5892)
 val onPrimaryLight = Color(0xFFFFFFFF)

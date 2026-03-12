@@ -1,5 +1,6 @@
 package com.godzuche.rickandmortydirectory.app.navigation.main
 
+import android.widget.Toast
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
@@ -11,6 +12,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -29,50 +31,25 @@ import androidx.navigation3.ui.NavDisplay
 import com.godzuche.rickandmortydirectory.app.navigation.rememberNavBackStack
 import com.godzuche.rickandmortydirectory.features.characters.api.navigation.CharactersListScreenNavKey
 import com.godzuche.rickandmortydirectory.R
+import com.godzuche.rickandmortydirectory.core.presentation.messaging.AppEvent
+import com.godzuche.rickandmortydirectory.core.presentation.messaging.AppEventBus
+import com.godzuche.rickandmortydirectory.core.presentation.utils.ObserveAsEvent
 import com.godzuche.rickandmortydirectory.features.characters.api.navigation.CharacterDetailsScreenNavKey
 import com.godzuche.rickandmortydirectory.features.characters.impl.navigation.characterDetailsEntry
 import com.godzuche.rickandmortydirectory.features.characters.impl.navigation.charactersListEntry
+import org.koin.compose.koinInject
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainGraph(
     modifier: Modifier = Modifier,
-//    onboardingViewModel: OnboardingViewModel = koinActivityViewModel<OnboardingViewModel>(),
-//    onOnboardingSuccess: () -> Unit,
+    appEventBus: AppEventBus = koinInject(),
 ) {
     val mainBackStack = rememberNavBackStack<NavKey>(CharactersListScreenNavKey)
 
 //    var showSettingsDialog by remember { mutableStateOf(false) }
 //
 //    val context = LocalContext.current
-//    LaunchedEffect(Unit) {
-//        onboardingViewModel.events.collect { event ->
-//            when (event) {
-//                is OnboardingEvent.ShowManualRoleSettingsGuidance -> {
-//                    showSettingsDialog = true
-//                }
-//
-//                is OnboardingEvent.NavigateToCorePermissions -> {
-//                    onboardingBackStack.add(CorePermissionsScreenNavKey)
-//                }
-//
-//                is OnboardingEvent.OnboardingSuccess -> {
-//////                    Toast.makeText(context, "Firewall activated!", Toast.LENGTH_SHORT).show()
-////                    backStack.remove(OnboardingGraphNavKey)
-////                    backStack.add(MainNavKey(showOnboardingSuccessMessage = true))
-//                    onOnboardingSuccess()
-//                }
-//
-//                is OnboardingEvent.ShowPermissionDeniedMessage -> {
-//                    Toast.makeText(
-//                        context,
-//                        "\"${event.permission}\" Permission is required for app functionalities",
-//                        Toast.LENGTH_LONG,
-//                    ).show()
-//                }
-//            }
-//        }
-//    }
 //
 //    if (showSettingsDialog) {
 //        RoleSettingsDialog(
@@ -88,113 +65,42 @@ fun MainGraph(
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
 
-//    val dashboardUiState by dashboardViewModel.uiState.collectAsStateWithLifecycle()
-//
-//    val animatedBackgroundColor by animateColorAsState(
-//        targetValue = if (dashboardUiState.firewallUiState.firewallState == FirewallState.ZEN) {
-//            MaterialTheme.colorScheme.surfaceContainerLow
-//        } else {
-//            MaterialTheme.colorScheme.background
-//        },
-//        animationSpec = tween(durationMillis = 500),
-//        label = "background_color_anim"
-//    )
-//
-//    ObserveAsEvent(
-//        flow = rulesViewModel.events,
-//    ) { event ->
-//        val uiEvent = when (event) {
-//            is RulesUiEvent.RuleAdded -> {
-//                val text =
-//                    UiText.StringResource(
-//                        R.string.rule_added_successfully,
-//                        listOf(
-//                            event.number,
-//                            event.selectedRulesTab.title,
-//                        )
-//                    )
-//                UiEvent.ShowSnackbar(text)
-//            }
-//
-//            is RulesUiEvent.RuleRemoved -> {
-//                val text =
-//                    UiText.StringResource(
-//                        R.string.rule_removed_successfully,
-//                        listOf(
-//                            event.contactLabel,
-//                            event.selectedRulesTab.title,
-//                        ),
-//                    )
-//
-//                UiEvent.ShowSnackbar(
-//                    message = text,
-//                    snackbarAction = ShowSnackbarAction.UndoRemoveRule(
-//                        undoAction = SnackbarAction.UNDO,
-//                    ),
-//                )
-//            }
-//
-//            is RulesUiEvent.OperationFailed -> {
-//                val text = event.error.toUiText()
-//                UiEvent.ShowSnackbar(text)
-//            }
-//        }
-//
-//        uiEventBus.sendEvent(uiEvent)
-//
-//    }
-//
-//    ObserveAsEvent(
-//        flow = uiEventBus.events,
-//        uiEventBus,
-//        snackbarHostState,
-//        context,
-//    ) { event ->
-//        when (event) {
-//            is UiEvent.ShowSnackbar -> {
-//                val message = event.message.asString(context)
-//                val actionLabel = event.snackbarAction?.action?.label
-//
-//                val result = snackbarHostState.showSnackbar(
-//                    message = message,
-//                    actionLabel = actionLabel,
-//                    duration = if (actionLabel == null) {
-//                        SnackbarDuration.Short
-//                    } else SnackbarDuration.Short,
-//                )
-//
-//                when (result) {
-//                    SnackbarResult.ActionPerformed -> {
-//                        when (event.snackbarAction) {
-//                            // User tapped "Undo". Send the corresponding event back.
-//                            is ShowSnackbarAction.UndoRemoveRule -> {
-//                                if (event.snackbarAction.action == SnackbarAction.UNDO) {
-//                                    // A better way would be to have a specific event for this.
-//                                    // For now, let's call the ViewModel directly.
-//                                    rulesViewModel.onUndoRemove()
-//                                }
-//                            }
-//
-//                            else -> Unit
-//                        }
-//                    }
-//
-//                    SnackbarResult.Dismissed -> {
-//                        // Snackbar timed out or was dismissed
-//                        when (event.snackbarAction) {
-//                            is ShowSnackbarAction.UndoRemoveRule -> {
-//                                if (event.snackbarAction.action == SnackbarAction.UNDO) {
-//                                    rulesViewModel.onCommitRemove()
-//                                }
-//                            }
-//
-//                            else -> Unit
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
+    ObserveAsEvent(
+        flow = appEventBus.events,
+        appEventBus,
+        snackbarHostState,
+        context,
+    ) { event ->
+        when (event) {
+            is AppEvent.ShowSnackbar -> {
+                snackbarHostState.showSnackbar(
+                    message = event.message,
+                    duration = SnackbarDuration.Short,
+                )
+            }
+
+            is AppEvent.ShowToast -> {
+                Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
+            }
+
+            is AppEvent.ShowDialog -> {
+                // TODO: Show dialog
+            }
+
+            is AppEvent.Navigate -> {
+                if (event.clearBackStack) {
+                    mainBackStack.clear()
+                    mainBackStack.add(event.navKey)
+                } else {
+                    mainBackStack.add(event.navKey)
+                }
+            }
+
+            is AppEvent.NavigateBack -> {
+                mainBackStack.removeLastOrNull()
+            }
+        }
+    }
 
     Scaffold(
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
@@ -202,7 +108,7 @@ fun MainGraph(
         topBar = {
             val title = when (mainBackStack.last()) {
                 CharactersListScreenNavKey -> "Characters"
-                CharacterDetailsScreenNavKey -> "Character Details"
+                is CharacterDetailsScreenNavKey -> "Character Details"
                 else -> ""
             }
 
@@ -222,32 +128,7 @@ fun MainGraph(
                     }
                 },
                 title = {
-                    Text(
-                        text = title,
-//                        style = MaterialTheme.typography.titleMedium,
-                    )
-
-//                    AnimatedVisibility(
-//                        visible = backStack.last() == RulesNavKey,
-//                        enter = slideInVertically(initialOffsetY = { -it }) + fadeIn(),
-//                        exit = slideOutVertically(targetOffsetY = { -it }) + fadeOut(),
-//                    ) {
-//                        Text(
-//                            text = "Rules",
-//                            style = MaterialTheme.typography.titleMedium,
-//                        )
-//                    }
-//
-//                    AnimatedVisibility(
-//                        visible = backStack.last() == BottomSheetNavKey
-//                        enter = slideInVertically(initialOffsetY = { -it }) + fadeIn(),
-//                        exit = slideOutVertically(targetOffsetY = { -it }) + fadeOut(),
-//                    ) {
-//                        Text(
-//                            text = "Add Rule",
-//                            style = MaterialTheme.typography.titleMedium,
-//                        )
-//                    }
+                    Text(text = title)
                 }
             )
         },
@@ -264,7 +145,7 @@ fun MainGraph(
                 rememberViewModelStoreNavEntryDecorator(),
             ),
             entryProvider = entryProvider {
-                charactersListEntry(backStack = mainBackStack)
+                charactersListEntry()
                 characterDetailsEntry()
             },
             transitionSpec = {

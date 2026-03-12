@@ -19,7 +19,6 @@ import com.godzuche.rickandmortydirectory.app.navigation.main.mainGraphEntry
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavigationRoot(
-//    shouldHideOnboarding: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val backStack = rememberNavBackStack(MainGraphNavKey)
@@ -27,18 +26,13 @@ fun NavigationRoot(
     NavDisplay(
         backStack = backStack,
         onBack = { backStack.removeLastOrNull() },
-        modifier =  modifier,
+        modifier = modifier,
         entryDecorators = listOf(
             rememberSaveableStateHolderNavEntryDecorator(),
             rememberViewModelStoreNavEntryDecorator(),
         ),
         entryProvider = entryProvider {
-            mainGraphEntry(
-//                onOnboardingSuccess = {
-//                    backStack.remove(OnboardingGraphNavKey)
-//                    backStack.add(MainNavKey)
-//                },
-            )
+            mainGraphEntry()
         },
         transitionSpec = {
             slideInHorizontally(

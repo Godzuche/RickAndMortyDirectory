@@ -106,6 +106,7 @@ dependencies {
     // Proto
 //    api(libs.protobuf.kotlin.lite)
 
+    // Todo: bundle
     // Koin
     implementation(platform(libs.koin.bom))
 //    implementation(libs.koin.core)
@@ -115,12 +116,7 @@ dependencies {
 //    implementation("io.insert-koin:koin-compose-navigation3") // Experimental
 
     // Ktor Client
-    implementation(libs.ktor.client.core)
-    implementation(libs.ktor.client.cio)
-    implementation(libs.ktor.client.okhttp)
-    implementation(libs.ktor.client.logging)
-    implementation(libs.ktor.client.content.negotiation)
-    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.bundles.ktor)
 
 //    implementation(libs.logging.interceptor)
 
@@ -136,4 +132,6 @@ dependencies {
     implementation(libs.androidx.room.paging)
 
     implementation(libs.kotlinx.datetime)
+
+    implementation(libs.bundles.coil)
 }
