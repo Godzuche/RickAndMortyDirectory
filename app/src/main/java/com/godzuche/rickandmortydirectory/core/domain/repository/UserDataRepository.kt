@@ -1,6 +1,5 @@
 package com.godzuche.rickandmortydirectory.core.domain.repository
 
-import com.godzuche.rickandmortydirectory.core.domain.model.FirewallState
 import com.godzuche.rickandmortydirectory.core.domain.model.ThemeConfig
 import com.godzuche.rickandmortydirectory.core.domain.model.UserPreferences
 import kotlinx.coroutines.flow.Flow
@@ -13,18 +12,8 @@ interface UserDataRepository {
 
     suspend fun setThemeConfig(themeConfig: ThemeConfig)
 
-//    /**
-//     * Sets whether the user has completed the onboarding process.
-//     */
-//    suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean)
-
     /**
      * Sets the preferred dynamic color config.
      */
     suspend fun setDynamicColorPreference(useDynamicColor: Boolean)
-
-    /**
-     *  Sets the firewall state
-     * */
-    suspend fun setFirewallState(firewallState: FirewallState)
 }

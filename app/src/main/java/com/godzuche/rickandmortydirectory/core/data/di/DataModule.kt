@@ -23,7 +23,4 @@ val dataModule = module {
     }
 
     singleOf(::OfflineFirstCharacterRepository).bind<CharacterRepository>()
-//
-//    single { PhoneNumberNormalizer(context = androidContext()) }
-//    singleOf(::ActivityRepositoryImpl).bind<ActivityRepository>()
 }

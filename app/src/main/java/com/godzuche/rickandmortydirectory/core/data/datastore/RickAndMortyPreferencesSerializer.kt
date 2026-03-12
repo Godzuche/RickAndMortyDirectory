@@ -8,7 +8,7 @@ import kotlinx.serialization.json.Json
 import java.io.InputStream
 import java.io.OutputStream
 
-object RickAndMortyPreferencesSerializer: Serializer<UserPreferencesData> {
+object RickAndMortyPreferencesSerializer : Serializer<UserPreferencesData> {
     override val defaultValue: UserPreferencesData
         get() = UserPreferencesData()
 

@@ -10,11 +10,6 @@ import coil3.network.okhttp.OkHttpNetworkFetcherFactory
 import coil3.request.CachePolicy
 import coil3.request.crossfade
 import com.godzuche.rickandmortydirectory.app.di.appModule
-import com.godzuche.rickandmortydirectory.core.data.di.dataStoreModule
-import com.godzuche.rickandmortydirectory.core.data.di.coroutineScopesModule
-import com.godzuche.rickandmortydirectory.core.data.di.dataModule
-import com.godzuche.rickandmortydirectory.core.data.di.databaseModule
-import com.godzuche.rickandmortydirectory.core.data.di.dispatchersModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -46,11 +41,6 @@ class RickAndMortyDirectoryApplication : Application(), SingletonImageLoader.Fac
             androidContext(this@RickAndMortyDirectoryApplication)
             modules(
                 appModule,
-//                dataModule,
-//                databaseModule,
-//                dispatchersModule,
-//                dataStoreModule,
-//                coroutineScopesModule,
             )
         }
     }

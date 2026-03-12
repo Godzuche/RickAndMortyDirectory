@@ -28,13 +28,13 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.godzuche.rickandmortydirectory.app.navigation.rememberNavBackStack
-import com.godzuche.rickandmortydirectory.features.characters.api.navigation.CharactersListScreenNavKey
 import com.godzuche.rickandmortydirectory.R
+import com.godzuche.rickandmortydirectory.app.navigation.rememberNavBackStack
 import com.godzuche.rickandmortydirectory.core.presentation.messaging.AppEvent
 import com.godzuche.rickandmortydirectory.core.presentation.messaging.AppEventBus
 import com.godzuche.rickandmortydirectory.core.presentation.utils.ObserveAsEvent
 import com.godzuche.rickandmortydirectory.features.characters.api.navigation.CharacterDetailsScreenNavKey
+import com.godzuche.rickandmortydirectory.features.characters.api.navigation.CharactersListScreenNavKey
 import com.godzuche.rickandmortydirectory.features.characters.impl.navigation.characterDetailsEntry
 import com.godzuche.rickandmortydirectory.features.characters.impl.navigation.charactersListEntry
 import org.koin.compose.koinInject

@@ -1,8 +1,8 @@
 package com.godzuche.rickandmortydirectory.core.presentation.utils
 
-import com.godzuche.rickandmortydirectory.core.presentation.UiText
 import com.godzuche.rickandmortydirectory.R
 import com.godzuche.rickandmortydirectory.core.domain.utils.DataError
+import com.godzuche.rickandmortydirectory.core.presentation.UiText
 
 /**
  * An extension function that maps a DataError to a user-friendly, displayable UiText object.

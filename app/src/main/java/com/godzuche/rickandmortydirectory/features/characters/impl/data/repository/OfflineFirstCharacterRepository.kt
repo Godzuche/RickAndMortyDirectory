@@ -7,7 +7,6 @@ import com.godzuche.rickandmortydirectory.features.characters.impl.data.mappers.
 import com.godzuche.rickandmortydirectory.features.characters.impl.data.remote.api.CharacterRemoteDataSource
 import com.godzuche.rickandmortydirectory.features.characters.impl.domain.CharacterRepository
 import com.godzuche.rickandmortydirectory.features.characters.impl.domain.model.Characters
-import kotlinx.coroutines.CoroutineDispatcher
 
 class OfflineFirstCharacterRepository(
     private val remoteDataSource: CharacterRemoteDataSource,

@@ -38,7 +38,6 @@ sealed interface MainActivityUiState {
                 ThemeConfig.DARK -> true
             }
 
-//        override val shouldHideOnboarding = userData.shouldHideOnboarding
     }
 
     /**
@@ -56,5 +55,4 @@ sealed interface MainActivityUiState {
      */
     fun shouldUseDarkTheme(isSystemDarkTheme: Boolean) = isSystemDarkTheme
 
-//    val shouldHideOnboarding: Boolean get() = false
 }

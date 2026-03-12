@@ -19,7 +19,7 @@ class KtorCharacterRemoteDataSource(
     private val client: HttpClient
 ) : CharacterRemoteDataSource {
     override suspend fun getCharacters(): Result<CharactersResponse, DataError.Remote> {
-        return withContext(ioDispatcher){
+        return withContext(ioDispatcher) {
             safeCall<CharactersResponse> {
                 client.get(constructUrl("/character"))
             }

@@ -1,7 +1,7 @@
 package com.godzuche.rickandmortydirectory.core.data.remote.util
 
 import com.godzuche.rickandmortydirectory.core.domain.utils.DataError
-import com.godzuche.rickandmortydirectory.core.domain.utils.*
+import com.godzuche.rickandmortydirectory.core.domain.utils.Result
 import io.ktor.client.call.NoTransformationFoundException
 import io.ktor.client.call.body
 import io.ktor.client.statement.HttpResponse
@@ -16,8 +16,7 @@ suspend inline fun <reified T> responseToResult(
                 Result.Success(response.body<T>())
             } catch (_: NoTransformationFoundException) {
                 Result.Error(DataError.Remote.Serialization)
-            }
-            catch (_: JsonConvertException) {
+            } catch (_: JsonConvertException) {
                 Result.Error(DataError.Remote.Serialization)
             }
         }
@@ -40,8 +39,7 @@ suspend inline fun <reified T> responseToResult(
                 } else Result.Error(DataError.Remote.BadClientRequest(message))
             } catch (_: NoTransformationFoundException) {
                 Result.Error(DataError.Remote.Serialization)
-            }
-            catch (_: JsonConvertException) {
+            } catch (_: JsonConvertException) {
                 Result.Error(DataError.Remote.Serialization)
             }
         }

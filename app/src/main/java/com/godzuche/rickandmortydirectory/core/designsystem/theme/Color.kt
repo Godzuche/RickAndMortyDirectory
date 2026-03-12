@@ -2,7 +2,7 @@ package com.godzuche.rickandmortydirectory.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
-val AliveColor =  Color(0xFF4CAF50)
+val AliveColor = Color(0xFF4CAF50)
 val DeadColor = Color(0xFFF44336)
 
 val primaryLight = Color(0xFF5A5892)

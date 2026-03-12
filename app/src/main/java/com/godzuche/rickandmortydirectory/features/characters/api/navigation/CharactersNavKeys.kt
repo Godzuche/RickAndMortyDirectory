@@ -5,8 +5,9 @@ import com.godzuche.rickandmortydirectory.features.characters.impl.presentation.
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object CharactersListScreenNavKey: NavKey
+data object CharactersListScreenNavKey : NavKey
+
 @Serializable
 data class CharacterDetailsScreenNavKey(
     val characterUiState: CharacterUiState
-): NavKey
+) : NavKey
