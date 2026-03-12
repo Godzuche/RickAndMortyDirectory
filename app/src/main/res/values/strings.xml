@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RickAndMortyDirectory</string>
+
+    <string name="error_database">"Could not save changes. Please try again."</string>
+    <string name="error_unknown">"An unexpected error occurred. Please try again."</string>
+    <string name="error_no_internet">"No internet connection. Please check your network."</string>
+    <string name="error_server">"Could not connect to the server. Please try again later."</string>
+</resources>
