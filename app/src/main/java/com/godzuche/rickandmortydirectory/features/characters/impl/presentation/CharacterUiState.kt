@@ -1,9 +1,11 @@
 package com.godzuche.rickandmortydirectory.features.characters.impl.presentation
 
+import androidx.compose.runtime.Stable
 import com.godzuche.rickandmortydirectory.features.characters.impl.domain.model.CharacterResult
 import com.godzuche.rickandmortydirectory.features.characters.impl.domain.model.Characters
 import kotlinx.serialization.Serializable
 
+@Stable
 @Serializable
 data class CharacterUiState(
     val id: Int,

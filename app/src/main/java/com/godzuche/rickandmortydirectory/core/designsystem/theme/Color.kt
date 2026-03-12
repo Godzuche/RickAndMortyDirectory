@@ -6,6 +6,9 @@ val AliveColor = Color(0xFF4CAF50)
 val DeadColor = Color(0xFFF44336)
 
 val primaryLight = Color(0xFF5A5892)
+val BaseShimmerColor = primaryLight.copy(alpha = 0.12f)
+val HighlightShimmerColor = Color.White.copy(alpha = 0.60f)
+
 val onPrimaryLight = Color(0xFFFFFFFF)
 val primaryContainerLight = Color(0xFFE2DFFF)
 val onPrimaryContainerLight = Color(0xFF424178)

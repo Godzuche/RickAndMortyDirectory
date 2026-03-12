@@ -24,13 +24,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import coil3.compose.rememberAsyncImagePainter
 import coil3.request.ImageRequest
 import coil3.request.crossfade
+import com.godzuche.rickandmortydirectory.R
 import com.godzuche.rickandmortydirectory.core.designsystem.theme.AliveColor
 import com.godzuche.rickandmortydirectory.core.designsystem.theme.DeadColor
 import com.godzuche.rickandmortydirectory.core.designsystem.theme.RickAndMortyDirectoryTheme
@@ -67,9 +70,9 @@ internal fun RickAndMortyCharacterCard(
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
                     contentScale = ContentScale.FillWidth,
-//                    placeholder = painterResource(R.drawable.loading),
-//                    error = painterResource(R.drawable.error),
-//                    fallback = painterResource(R.drawable.null_image),
+                    placeholder = rememberAsyncImagePainter(R.drawable.progress_activity_24dp),
+                    error = rememberAsyncImagePainter(R.drawable.broken_image_24dp),
+                    fallback = rememberAsyncImagePainter(R.drawable.question_mark_24dp),
                 )
 
                 // Species

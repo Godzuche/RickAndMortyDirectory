@@ -40,7 +40,8 @@ internal fun CharacterHeroSection(
             model = image,
             contentDescription = name,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize(),
         )
 
         // Bottom Gradient Scrim for text readability

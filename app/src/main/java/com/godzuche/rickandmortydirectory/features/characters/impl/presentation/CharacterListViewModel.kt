@@ -41,6 +41,10 @@ class CharacterListViewModel(
                     appEventBus.sendEvent(AppEvent.Navigate(CharacterDetailsScreenNavKey(action.character)))
                 }
             }
+
+            is CharacterListAction.OnRefresh -> {
+                getCharacters()
+            }
         }
     }
 
