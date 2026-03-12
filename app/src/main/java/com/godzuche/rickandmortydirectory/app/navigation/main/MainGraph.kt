@@ -22,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavKey
@@ -84,7 +85,7 @@ fun MainGraph(
             }
 
             is AppEvent.ShowDialog -> {
-                // TODO: Show dialog
+                // Show dialog
             }
 
             is AppEvent.Navigate -> {
@@ -104,11 +105,10 @@ fun MainGraph(
 
     Scaffold(
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
-//        containerColor = animatedBackgroundColor,
         topBar = {
             val title = when (mainBackStack.last()) {
-                CharactersListScreenNavKey -> "Characters"
-                is CharacterDetailsScreenNavKey -> "Character Details"
+                CharactersListScreenNavKey -> stringResource(R.string.home)
+                is CharacterDetailsScreenNavKey -> stringResource(R.string.details)
                 else -> ""
             }
 
@@ -122,7 +122,7 @@ fun MainGraph(
                         ) {
                             Icon(
                                 imageVector = ImageVector.vectorResource(R.drawable.arrow_back_24dp),
-                                contentDescription = "Back",
+                                contentDescription = stringResource(R.string.back),
                             )
                         }
                     }

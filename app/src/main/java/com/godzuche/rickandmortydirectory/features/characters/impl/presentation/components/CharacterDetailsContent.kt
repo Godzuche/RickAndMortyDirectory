@@ -10,10 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.godzuche.rickandmortydirectory.R
+import com.godzuche.rickandmortydirectory.core.designsystem.theme.AliveColor
+import com.godzuche.rickandmortydirectory.core.designsystem.theme.DeadColor
 import com.godzuche.rickandmortydirectory.core.designsystem.theme.RickAndMortyDirectoryTheme
 
 @Composable
@@ -36,20 +39,20 @@ internal fun CharacterDetailsContent(
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             InfoTile(
-                label = "Status",
+                label = stringResource(R.string.status),
                 value = status,
                 icon = ImageVector.vectorResource(
                     R.drawable.info_24dp
                 ),
                 modifier = Modifier.weight(1f),
                 valueColor = when (status.lowercase()) {
-                    "alive" -> Color(0xFF4CAF50)
-                    "dead" -> Color(0xFFF44336)
+                    "alive" -> AliveColor
+                    "dead" -> DeadColor
                     else -> MaterialTheme.colorScheme.onSurfaceVariant
                 }
             )
             InfoTile(
-                label = "Gender",
+                label = stringResource(R.string.gender),
                 value = gender,
                 icon = ImageVector.vectorResource(
                     id = if (gender.lowercase() == "male") {
@@ -64,7 +67,7 @@ internal fun CharacterDetailsContent(
 
         // Location Details
         DetailCard(
-            title = "Origin",
+            title = stringResource(R.string.origin),
             value = origin,
             icon = ImageVector.vectorResource(
                 id = R.drawable.home_pin_24dp,
@@ -72,7 +75,7 @@ internal fun CharacterDetailsContent(
         )
 
         DetailCard(
-            title = "Last Known Location",
+            title = stringResource(R.string.last_known_location),
             value = location,
             icon = ImageVector.vectorResource(
                 id = R.drawable.location_on_24dp,

@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -65,7 +66,10 @@ internal fun RickAndMortyCharacterCard(
                         .data(character.image)
                         .crossfade(true)
                         .build(),
-                    contentDescription = "Image of ${character.name}",
+                    contentDescription = stringResource(
+                        R.string.character_item_image_description,
+                        character.name,
+                    ),
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
@@ -114,7 +118,6 @@ internal fun RickAndMortyCharacterCard(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(6.dp)
                 ) {
-                    // Status Indicator Dot
                     val statusColor = when (character.status.lowercase()) {
                         "alive" -> AliveColor
                         "dead" -> DeadColor
