@@ -31,6 +31,9 @@ kotlinxDatetime = "0.7.1"
 napier = "2.7.1"
 ktor = "3.0.0"
 coil3 = "3.3.0"
+kotlinxCoroutines = "1.10.1"
+turbine = "1.2.1"
+truth = "1.4.4"
 #loggingInterceptor = "4.10.0"
 
 [libraries]
@@ -111,6 +114,10 @@ coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref
 coil-network-cache-control = { module = "io.coil-kt.coil3:coil-network-cache-control", version.ref = "coil3" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil3" }
 coil-network-ktor3 = { group = "io.coil-kt.coil3", name = "coil-network-ktor3", version.ref = "coil3" }
+
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

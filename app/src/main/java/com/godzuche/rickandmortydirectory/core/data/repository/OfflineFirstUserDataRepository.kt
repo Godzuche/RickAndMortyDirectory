@@ -7,10 +7,11 @@ import com.godzuche.rickandmortydirectory.core.domain.repository.UserDataReposit
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 
 class OfflineFirstUserDataRepository(
     private val preferencesDataSource: RickAndMortyPreferencesDataSource,
-    ioDispatcher: CoroutineDispatcher,
+    private val ioDispatcher: CoroutineDispatcher,
 ) : UserDataRepository {
 
     override val userPreferencesData: Flow<UserPreferences> =
@@ -18,10 +19,14 @@ class OfflineFirstUserDataRepository(
             .flowOn(ioDispatcher)
 
     override suspend fun setThemeConfig(themeConfig: ThemeConfig) {
-        preferencesDataSource.setDarkThemeConfig(themeConfig)
+        withContext(ioDispatcher) {
+            preferencesDataSource.setDarkThemeConfig(themeConfig)
+        }
     }
 
     override suspend fun setDynamicColorPreference(useDynamicColor: Boolean) {
-        preferencesDataSource.setDynamicColorPreference(useDynamicColor)
+        withContext(ioDispatcher){
+            preferencesDataSource.setDynamicColorPreference(useDynamicColor)
+        }
     }
 }
