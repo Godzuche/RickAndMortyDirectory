@@ -67,9 +67,17 @@ Given more time, the following features would be implemented:
 - **Local Caching:** Implementation of **Room** database to support offline-first capabilities.
 - **Paging 3:** Integration with the Paging library for smoother infinite scrolling.
 
-## ⚙️ Build Instructions
+## ⚙️ Build & Installation
 
+### Option 1: Direct APK Download (Quick Test)
+For immediate testing without building from source, you can download and install the debug APK here:
+
+[Download APK](https://github.com/Godzuche/RickAndMortyDirectory/releases/download/v1.0.0/rick-morty-character-directory-debug.apk)
+
+Make sure installation from unknown sources is enabled on your Android device.
+
+### Option 2: Build from Source
 1.  **Clone the repository.**
-2.  **Open in Android Studio** (Hedgehog or newer recommended).
+2.  **Open in Android Studio** (recent versions recommended).
 3.  **Sync Gradle.**
 4.  **Run** on an emulator or physical device (API 24+).
